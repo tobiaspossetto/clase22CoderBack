@@ -1,0 +1,34 @@
+
+html
+
+
+    head
+
+      script(src='/socket.io/socket.io.js')
+    body
+       
+
+        div(id='prods')
+
+        
+
+    script.
+        window.onload = function() {
+            render(data)
+        }
+
+        function render(data) {
+            console.log(data)
+            const html = data.map(elem => {
+                return(`
+                    <br/>
+                    <td>${elem.title}</td>
+
+                    <td>${elem.price}</td>
+                    <td><img src=${elem.image}/></td>
+                    <br/>
+                    `)
+            }).join(" ");
+            document.getElementById('prods').innerHTML = html;
+        }
+
