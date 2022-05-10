@@ -4,26 +4,40 @@ html
 
     head
 
-      script(src='/socket.io/socket.io.js')
+   
     body
        
+        table
+            th nombre
+            th precio
+            th img
 
-        div(id='prods')
+            div(id='prods')
 
         
 
     script.
-        console.log(data)
+        //fetch products when window is loaded
+        window.onload = () => {
+            fetch('/api/productos-test')
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                render(data);
+            }
+            )
+        }
+
         function render(data) {
-            console.log(#{data})
+          
             const html = data.map(elem => {
                 return(`
-                    <br/>
-                    <td>${elem.title}</td>
+                    <tr>
+                        <td>${elem.name}</td>
 
-                    <td>${elem.price}</td>
-                    <td><img src=${elem.image}/></td>
-                    <br/>
+                         <td>${elem.price}</td>
+                         <td><img src=${elem.image}/></td>
+                    </tr>
                     `)
             }).join(" ");
             document.getElementById('prods').innerHTML = html;

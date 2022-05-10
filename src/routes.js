@@ -9,6 +9,10 @@ router.get('/', (req, res) => {
     res.render('products.pug');
 })
 
+router.get('/test', (req, res) => {
+    res.render('test.pug');
+})
+
 router.get('/api/productos-test', (req, res) => {
     //generate 5 ramdom products with faker
 try {
@@ -22,8 +26,7 @@ try {
             image: faker.image.image()
         });
     }
-    console.log(data);
-    res.render('test.pug',{data:data});
+    res.send(data)
 } catch (error) {
     console.log(error);
 }
