@@ -14,7 +14,7 @@ const MsgMongo = require('./controllers/MsgMongo');
 
 //BASE DE DATOS A USAR
 //FS - FIREBASE - MONGO
-let db = 'FS'
+let db = 'FIREBASE'
 
 if(db == 'FS'){
     var msgController = new MsgFs()}

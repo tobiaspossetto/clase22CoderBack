@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
     res.render('products.pug');
 })
 
-router.get('/api/productos-test'), (req, res) => {
+router.get('/api/productos-test', (req, res) => {
     //generate 5 ramdom products with faker
 try {
     const data = [];
@@ -23,12 +23,12 @@ try {
         });
     }
     console.log(data);
-    res.render('test.pug',data);
+    res.render('test.pug',{data:data});
 } catch (error) {
     console.log(error);
 }
   
-}
+})
 
 
 

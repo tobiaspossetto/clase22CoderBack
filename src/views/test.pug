@@ -13,12 +13,9 @@ html
         
 
     script.
-        window.onload = function() {
-            render(data)
-        }
-
+        console.log(data)
         function render(data) {
-            console.log(data)
+            console.log(#{data})
             const html = data.map(elem => {
                 return(`
                     <br/>
